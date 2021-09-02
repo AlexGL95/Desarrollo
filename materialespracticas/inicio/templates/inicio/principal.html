@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'inicio/css/bootstrap.min.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'inicio/css/styles.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'inicio/css/icons.css'%}" type="text/css">
+    <title>Registro</title>
+    <style>
+        
+        
+        .sidebar {
+          height: 100%;
+          width: 250px;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #fff;
+          overflow-x: hidden;
+          padding-top: 16px;
+        }
+        
+        .sidebar a {
+          padding: 6px 8px 6px 16px;
+          text-decoration: none;
+          
+          font-size: 20px;
+          color: #111;
+          display: block;
+        }
+        
+        .sidebar a:hover {
+            color: green;
+        }
+        
+        .main {
+          margin-left: 160px; /* Same as the width of the sidenav */
+          padding: 0px 10px;
+        }
+        
+        @media screen and (max-height: 450px) {
+          .sidebar {padding-top: 15px;}
+          .sidebar a {font-size: 18px;}
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href= >   
+            <img src="{%static 'inicio/images/utm_1.jpeg' %}" width='80px' height='80px'>
+        </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{%url 'inicio' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'registro_empleados'%}" class="nav-link" title="">Materiales</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{%url 'form'%}" class="nav-link">Registrate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'principal'%}" class="nav-link">Registro</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+		<!-- /sidebar -->
+<!-- Contenido Principal-->
+<div class="page-content">
+    <!--Encabezdo -->
+    <div class="page-header">
+        <div class="page-title">
+            <h1>Materiales </h1>
+            
+           
+        </div>
+    </div>
+    <!-- /Encabezado-->
+
+	<!--barra de navegación-->
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li>
+				<a href="{% url 'principal'%}">
+					{%if request.path == '/' %}
+						Principal
+					{%else %}
+						Principal{{request.path}}
+					{%endif %}
+				</a>
+			</li>
+        </ul>
+    </div>
+
+     <!-- Tabla de Alumnos  -->
+     {%if materiales%}
+     <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Material </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for material in materiales%}
+                <tr>
+                    
+                    <td class='text-semibold' >{{material.nombre}}</td>
+                    <td class='muted'>{{material.carrera}} </td>
+                    <td class='muted'> {{material.material}} </td>
+                    <td class><a href='{% url "editar" material.id %}' class='btn btn-success' >Editar</a></td>
+                    <td class><a href='{% url "eliminar" material.id %}' class='btn btn-danger' >Eliminar</a></td>
+                </tr>
+            {%endfor%}
+        </tbody>
+
+    </table>
+    {%else%}
+
+        <h1>Aqui se mostraran las peticiones de materiales </h1>
+
+    {%endif%}
+
+<!--fin barra de navegación-->
+    
+    
+    
