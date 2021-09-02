@@ -1,51 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
     {%load static%}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'inicio/css/bootstrap.min.css'%}" type="text/css">
-    <link rel="stylesheet" href="{% static 'inicio/css/londinium-theme.css'%}" type="text/css">
-    <link rel="stylesheet" href="{% static 'inicio/css/styles.css'%}" type="text/css">
-    <link rel="stylesheet" href="{% static 'inicio/css/icons.css'%}" type="text/css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="{% static 'inicio/css/bootstrap.min.css'%}"
+          type="text/css">
+    <link rel="stylesheet"
+          href="{% static 'inicio/css/londinium-theme.css'%}"
+          type="text/css">
+    <link rel="stylesheet"
+          href="{% static 'inicio/css/styles.css'%}"
+          type="text/css">
+    <link rel="stylesheet"
+          href="{% static 'inicio/css/icons.css'%}"
+          type="text/css">
     <title>Inicio</title>
     <style type="text/css">
-       
-        h1{
-            text-align: center; 
-            font-size: 30px;
-            color: darkslategrey ; 
-        }
+      h1 {
+        text-align: center;
+        font-size: 30px;
+        color: darkslategrey;
+      }
     </style>
-</head>
-<body class="" >
-     <div class="container">
-       
-        <div class="row align-items-center">
-            <div class="col-sm-2"> 
-              
+  </head>
+
+  <body class="">
+    <div class="container">
+
+      <div class="row align-items-center">
+        <div class="col-sm-2">
+
+        </div>
+
+        <div class="col-sm-8 text-center card-body ">
+
+          <div class="card"
+               style="width: 60rem;">
+            <img src="{%static 'inicio/images/utm.jpeg' %}"
+                 class="card-img-top"
+                 alt="...">
+            <div class="card-body">
+              <h1 class="card-title">Bienvenido aquí podras registrarte para pedir tus materiales necesarios para tus
+                prácticas</h1>
+              <p class="card-text">Da click para continuar</p>
+              <a href="{% url 'form'%}"
+                 class="btn btn-success btn-xxl">Entrar</a>
             </div>
-          
-            <div class="col-sm-8 text-center card-body ">
-                
-                <div class="card" style="width: 60rem;">
-                  <img src="{%static 'inicio/images/utm.jpeg' %}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h1 class="card-title">Bienvenido aquí podras registrarte para pedir tus materiales necesarios para tus prácticas</h1>
-                    <p class="card-text">Da click para continuar</p>
-                    <a href="{% url 'form'%}" class="btn btn-success btn-xxl">Entrar</a>
-                  </div>
-                </div>
-            </div>
-           
-            <div class="col-sm-2">
-              
-            </div>
-           
-       </div>
-   
-     </div>
-    
-</body>
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
 </html>
